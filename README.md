@@ -77,3 +77,18 @@ Followin a brief walk through detailing the purpose of some of the classes and e
 							loadedAdvMarkets++;
 						});
 					}, self);
+					
+### /util/appstate.js
+* Appstate is a simple (but crucial) Singleton class which leverages on the html5 LocalStorage api to provide api metadata information to most parts of the  application
+* It knows about how certain meta types need to be managed / formatted too, other then just exposing get and set functionality
+* Examples of usage
+
+		this.range = AppState.getState("daterange");
+		
+		...
+		
+		custDaterange = AppState.getState("daterange").from + " to " + AppState.getState("daterange").to;
+		
+		...
+		
+		AppState.setState("metrics", options.target, options.val);
