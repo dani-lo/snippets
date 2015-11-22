@@ -151,3 +151,9 @@ Followin a brief walk through detailing the purpose of some of the classes and e
                 scope : this
             }
         });
+        
+### /util/dataformatter
+* A simple utility class to format units and values returned in raw format by api calls
+
+### /views/helper/graphing/tooltip.js
+* A simple view class used to display data tooltips as the user moves the mouse around different svg plots
