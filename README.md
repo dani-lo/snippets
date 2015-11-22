@@ -129,3 +129,25 @@ Followin a brief walk through detailing the purpose of some of the classes and e
 ### /views/helper/graphing/svg/chart/stackplotter.js
 * Same approach as the above class (inherits from same base plotter) - but instead of plotting area charts, it plots stacked charts
 
+### /views/widget/selector/market.js
+* The advertiser is a view class. It extends a base Selector class to provide logic specific to outputting a market dropdown selector
+* It expects among the rest a handler object with instruction for callbacks to invoke on user selection (built within a parent class with more app logic responsibilities and couplings)
+* Examples of usage
+		
+		require([
+      		"/views/widget/selector/market",
+    	], function (AppState) {
+    	
+    	...
+    	
+		this.marketSelector = new MarketSelectorView({
+            listID : "app-menu-markets",
+            el : "#marketselectdropdown",
+            handler : {
+                callback: function (target, val) {
+                    AppState.setState("api", "market", val);
+                    ATP.Event.trigger("marketSelector:update", {target : target, val : val});
+                },
+                scope : this
+            }
+        });
