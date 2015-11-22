@@ -4,6 +4,7 @@
 This repo contains a few classes and underscore template files, as an example set taken from a large data dashboard javascript application.
 The app deals with large volumes of data and employs several strategies for user data management and metadata cross referencing.
 Followin a brief walk through detailing the purpose of some of the classes and examples of how they are used within the app
+## Javascript Classes
 ### /helper/datascreen/datascreen/fs.js
 * The Fs class is a singleton class which provides a set of methods to access a low level api which gives access to Chrome-only permanent storage feature (set in this case at 1GB on the host machine)
 * Other classes (one in particular meant as a data hub) can use the methods from the Fs class to store, retrieve, or delete data
@@ -157,3 +158,9 @@ Followin a brief walk through detailing the purpose of some of the classes and e
 
 ### /views/helper/graphing/tooltip.js
 * A simple view class used to display data tooltips as the user moves the mouse around different svg plots
+## Underscore Templates
+* Some of the numerous underscore templates used by the application to display data and information to the user
+* filterlist-row.html - markup used by a set of filter classes to present users with a UI to filter down data sets
+* menu-item.html - a row within a selector view
+* notification.html - modal template with close functionality, to notify users
+* paginator.html - base template to paginate large sets of table dat
