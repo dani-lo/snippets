@@ -82,7 +82,13 @@ Followin a brief walk through detailing the purpose of some of the classes and e
 * Appstate is a simple (but crucial) Singleton class which leverages on the html5 LocalStorage api to provide api metadata information to most parts of the  application
 * It knows about how certain meta types need to be managed / formatted too, other then just exposing get and set functionality
 * Examples of usage
-
+		
+		require([
+      		"/util/appstate",
+    	], function (AppState) {
+    	
+    	...
+    	
 		this.range = AppState.getState("daterange");
 		
 		...
@@ -92,3 +98,34 @@ Followin a brief walk through detailing the purpose of some of the classes and e
 		...
 		
 		AppState.setState("metrics", options.target, options.val);
+
+### /views/helper/graphing/svg/chart/areaplotter.js
+* The AreaPlotter class extends a base plotting class (with access to several previously instantiated d3 domain / range objects) to provide the functionality required by the last stage of data plotting (setting the  values on the svg dom elements)
+* Employs domains logic, redrawing (with animation) logic, and in general is the last assembler within the plotting chain
+* Examples of usage
+		
+		require([
+      		"/views/helper/graphing/svg/chart/areaplotter",
+    	], function (AppState) {
+    	
+    	...
+    	
+		areaplotter = new AreaPlotter({
+            options : options,
+            locdata : this.data,
+            name : "area"
+        });
+        
+        ...
+        
+        this.graphview.setPlotters({
+            area : areaplotter,
+            stack : stackplotter,
+            stream : streamplotter,
+            line: lineplotter,
+            highlight : highlightplotter
+    	});
+
+### /views/helper/graphing/svg/chart/stackplotter.js
+* Same approach as the above class (inherits from same base plotter) - but instead of plotting area charts, it plots stacked charts
+
