@@ -1,6 +1,5 @@
 # JS snippets
 
-### About
 This repo contains a few classes and underscore template files, as an example set taken from a large data dashboard javascript application.
 The app deals with large volumes of data and employs several strategies for user data management and metadata cross referencing.
 Followin a brief walk through detailing the purpose of some of the classes and examples of how they are used within the app
