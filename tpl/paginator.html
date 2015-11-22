@@ -1,0 +1,61 @@
+<%
+    var nextStart, prevStart;
+    nextStart = currPage + 1;
+    prevStart = currPage - 1;
+
+    if (prevStart < 1) {
+        prevStart = 1;
+    }
+
+    if (nextStart > totalPages) {
+        nextStart = totalPages;
+    }
+%>
+
+<div class="paginator-container">    
+    <span class="pagination-first">
+        <% if (currPage == 1) {%>
+            <span class="cmd-disabled">
+                <i class="icon-ATP-icons_start"></i>
+            </span>
+        <% } else { %>
+            <a class="pagination-page pagination-page-1" href="#" data-page="1">
+                <i class="icon-ATP-icons_start"></i>
+            </a>
+            <% if (totalPages > 5) { %>
+                <div class="pagination-jump-ui back">
+                    <% for (var q = 1; q < currPage; q++){ %>
+                        <a class="pagination-page pagination-page-<%= q %>" href="#" data-page="<%= q %>"><%= q %></a>
+                    <% }; %>
+                </div>
+            <% } %>
+        <% }; %>
+    </span>
+
+    <%  for (var i = 0; i < pagesRange.length; i++){ %>
+        <% if (pagesRange[i] == currPage) {%>
+            <span class="curr-page"><%= pagesRange[i] %></span>
+        <% } else { %>
+            <span><a class="pagination-page pagination-page-<%= pagesRange[i] %>" href="#" data-page="<%= pagesRange[i] %>"><%= pagesRange[i] %></a></span>
+        <% }; %>
+    <% }; %>
+
+    <span class="pagination-last">
+        <% if (currPage == totalPages) {%>
+            <span class="cmd-disabled">
+                <i class="icon-ATP-icons_end"></i>
+            </span>
+        <% } else { %>
+            <a class="pagination-page pagination-page-<%= totalPages %>" href="#" data-page="<%= totalPages %>">
+                <i class="icon-ATP-icons_end"></i>
+            </a>
+            <% if (totalPages > 5) { %>
+                <div class="pagination-jump-ui forward" data-totrows="<%= Math.ceil((totalPages - currPage) / 6) %>">
+                    <% for (var q = currPage + 1; q <= totalPages; q++){ %>
+                        <a class="pagination-page pagination-page-<%= q %>" href="#" data-page="<%= q %>"><%= q %></a>
+                    <% }; %>
+                </div>
+            <% } %>
+        <% }; %>
+    </span>
+</div>

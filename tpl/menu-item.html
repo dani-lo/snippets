@@ -1,0 +1,14 @@
+<% 
+	var strDataAttrs = " ";
+	for(var i = 0; i < dataAttrs.length;i ++) {
+		strDataAttrs += " data-" + dataAttrs[i][0] + "='" + dataAttrs[i][1] + "' ";
+	};
+%>
+
+<li class="custom-chbx-container">
+	<input type="checkbox" class="multiselect-check<%= isdefault ? " m-checked" : "" %>" <%= isdefault ? "checked='checked'" : "" %>>
+	<a href="#_" <%= strDataAttrs %> class="filter <%= classname %> <%= isdefault ? 'current' : ''  %>">
+		<span class="icon-ATP-icons_checkboxTick"></span>
+		<%= text %>
+	</a>
+</li>

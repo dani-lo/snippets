@@ -1,0 +1,28 @@
+<% 
+	var classname, checked;
+
+	if(!removed) { 
+
+		classname = " active";
+		checked = "checked='checked'";
+
+	} else {
+
+		classname = "";
+		checked = "";
+	}
+
+	if (unactive) {
+		classname += " bypass";
+	}
+%>
+<li class='filter-item on' id='<%= listitembaseID %>-item-filter-<%= filterID %>' data-name="<%= filterName %>" data-native="on">
+	<div class="data-filter-name <%= classname %> custom-chbx-container">
+		<input id="chbox-<%= filterID %>" class='active filter-action action-filter-<%= filterID %>' data-target='<%= filterID %>' type="checkbox" <%= checked %> />
+		<label for="chbox-<%= filterID %>">
+			<span class="icon icon-ATP-icons_checkboxTick"></span>
+			<span class="icon icon-ATP-icons_circleRemove"></span>
+			<%= filterName %>
+		</label>
+	</div>
+</li>

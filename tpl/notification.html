@@ -1,0 +1,17 @@
+<div class="notification notification-<%- type %> <% if (icon) { %>has-icon<% } %>">
+	<a href="#_" class="close icon icon-ATP-icons_close"></a>
+	
+	<% if (icon) { %>
+		<div class="icon-wrap">
+			<i class="icon <%- icon %>"></i>
+		</div>
+	<% } %>
+	
+	<div class="title">
+		<%- title %>
+	</div>
+
+	<div class="body">
+		<%- body %>
+	</div>
+</div>
