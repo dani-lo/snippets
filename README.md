@@ -30,6 +30,62 @@ Followin a brief walk through detailing the purpose of some of the classes and e
       		});
     	}, this);
     	
+    	...
+    	
+    	var self = this,
+                dirFilters = this.getKeepFiltersPath();
+            
+        Fs.hasDirectory(dirFilters, "no", function () {
+
+            Fs.createDirectory(dirFilters, function () {
+                //
+                if (onloaded) {
+                    //
+                    onloaded.call(onloadedScope);
+                }
+            }, self);
+                
+        }, self);
+        
+        ...
+        
+* Importantly, the Fs functionality is employed by other classes - mostly the AtpFs class  which is aware of app logic and provides methods to manage app meta data by wrapping around the Fs functionality, see following example
+
+		var useChromeFS = AtpFs.hasChromeFS();
+        //
+        if (useChromeFS && AtpFs.fsHasBrushAvailable(this.reportname + "_" + timestep)) {
+            //
+            AtpFs.fsGetBrushCollection(this.reportname + "_" + timestep, function (result) {
+                //
+                setSeriesBrushData(result);
+            }, this);
+        }
+        
+        ...
+        
+        if (!AtpFs.hasMSelector(advertiser, "model")) {
+				//
+				modelscollection.menutype = "models";
+
+				...
+
+				modelscollection.setFetchType("TYPEPOST");
+
+				modelscollection.fetch({
+					type: "POST",
+					data : modelscollection.getParamsString(),
+					...
+					
+					success: _.bind(function (data) {
+						//
+						AtpFs.setMSelector(advertiser, "model", modelscollection.toJSON());
+
+						this.onMetricsData(advertiser, modelscollection);
+					}, this)
+					
+					...
+					
+    	
 ### /helper/bootstrap/preloader.js
 
 * The Preloader class acts as an entry point following user login
