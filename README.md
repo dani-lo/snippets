@@ -3,8 +3,11 @@
 This repo contains a few classes and underscore template files, as an example set taken from a large data dashboard javascript application.
 The app deals with large volumes of data and employs several strategies for user data management and metadata cross referencing.
 Followin a brief walk through detailing the purpose of some of the classes and examples of how they are used within the app
+
 ## Javascript Classes
+
 ### /helper/datascreen/datascreen/fs.js
+
 * The Fs class is a singleton class which provides a set of methods to access a low level api which gives access to Chrome-only permanent storage feature (set in this case at 1GB on the host machine)
 * Other classes (one in particular meant as a data hub) can use the methods from the Fs class to store, retrieve, or delete data
 * Examples of usage
@@ -28,6 +31,7 @@ Followin a brief walk through detailing the purpose of some of the classes and e
     	}, this);
     	
 ### /helper/bootstrap/preloader.js
+
 * The Preloader class acts as an entry point following user login
 * It employs several data managers and fetchers (collections, local storage manager, Chrome fs manager, application state manager) to make sure all the metadata is available for the user (given her login permission details) to start using the application and fetching data
 * It is managed itself by the application router, which employs it to aid with establishing if the available stored metadata is enough for the app to work fully, or more needs to be fetched
@@ -79,6 +83,7 @@ Followin a brief walk through detailing the purpose of some of the classes and e
 					}, self);
 					
 ### /util/appstate.js
+
 * Appstate is a simple (but crucial) Singleton class which leverages on the html5 LocalStorage api to provide api metadata information to most parts of the  application
 * It knows about how certain meta types need to be managed / formatted too, other then just exposing get and set functionality
 * Examples of usage
@@ -100,6 +105,7 @@ Followin a brief walk through detailing the purpose of some of the classes and e
 		AppState.setState("metrics", options.target, options.val);
 
 ### /views/helper/graphing/svg/chart/areaplotter.js
+
 * The AreaPlotter class extends a base plotting class (with access to several previously instantiated d3 domain / range objects) to provide the functionality required by the last stage of data plotting (setting the  values on the svg dom elements)
 * Employs domains logic, redrawing (with animation) logic, and in general is the last assembler within the plotting chain
 * Examples of usage
@@ -127,9 +133,11 @@ Followin a brief walk through detailing the purpose of some of the classes and e
     	});
 
 ### /views/helper/graphing/svg/chart/stackplotter.js
+
 * Same approach as the above class (inherits from same base plotter) - but instead of plotting area charts, it plots stacked charts
 
 ### /views/widget/selector/market.js
+
 * The advertiser is a view class. It extends a base Selector class to provide logic specific to outputting a market dropdown selector
 * It expects among the rest a handler object with instruction for callbacks to invoke on user selection (built within a parent class with more app logic responsibilities and couplings)
 * Examples of usage
@@ -153,11 +161,15 @@ Followin a brief walk through detailing the purpose of some of the classes and e
         });
         
 ### /util/dataformatter
+
 * A simple utility class to format units and values returned in raw format by api calls
 
 ### /views/helper/graphing/tooltip.js
+
 * A simple view class used to display data tooltips as the user moves the mouse around different svg plots
+
 ## Underscore Templates
+
 * Some of the numerous underscore templates used by the application to display data and information to the user
 * __filterlist-row.html__ - markup used by a set of filter classes to present users with a UI to filter down data sets
 * __menu-item.html__ - a row within a selector view
