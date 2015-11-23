@@ -168,7 +168,7 @@ Followin a brief walk through detailing the purpose of some of the classes and e
 		
 		require([
       		"/views/helper/graphing/svg/chart/areaplotter",
-    	], function (AppState) {
+    	], function (AreaPlotter) {
     	
     	...
     	
@@ -200,7 +200,7 @@ Followin a brief walk through detailing the purpose of some of the classes and e
 		
 		require([
       		"/views/widget/selector/market",
-    	], function (AppState) {
+    	], function (MarketSelectorView) {
     	
     	...
     	
