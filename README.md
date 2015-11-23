@@ -159,7 +159,7 @@ Followin a brief walk through detailing the purpose of some of the classes and e
 * A simple view class used to display data tooltips as the user moves the mouse around different svg plots
 ## Underscore Templates
 * Some of the numerous underscore templates used by the application to display data and information to the user
-* filterlist-row.html - markup used by a set of filter classes to present users with a UI to filter down data sets
-* menu-item.html - a row within a selector view
-* notification.html - modal template with close functionality, to notify users
-* paginator.html - base template to paginate large sets of table dat
+* __filterlist-row.html__ - markup used by a set of filter classes to present users with a UI to filter down data sets
+* __menu-item.html__ - a row within a selector view
+* __notification.html__ - modal template with close functionality, to notify users
+* __paginator.html__ - base template to paginate large sets of table dat
